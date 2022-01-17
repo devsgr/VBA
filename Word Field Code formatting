@@ -1,0 +1,16 @@
+Public Sub test()
+Dim rngTemp As Range
+' Copy the text color of the first field
+Set rngTemp = ActiveDocument.Fields(1).Result
+rngTemp.Select
+c = Selection.Font.TextColor
+
+'Apply this text color to the rest of the field codes
+n = ActiveDocument.Fields.Count
+For i = 2 To n
+Set rngTemp = ActiveDocument.Fields(i).Result
+rngTemp.Select
+Selection.Font.TextColor = c
+Next
+
+End Sub
